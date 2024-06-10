@@ -1,4 +1,4 @@
-package main
+package go-websockify
 
 import (
 	"fmt"
@@ -39,7 +39,7 @@ func init() {
 	rootCmd.Flags().BoolVarP(&config.showVersion, "version", "v", false, "print version")
 }
 
-func main() {
+func Main() {
 	if err := rootCmd.Execute(); err != nil {
 		os.Exit(1)
 	}

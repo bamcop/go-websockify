@@ -1,4 +1,4 @@
-package main
+package go-websockify
 
 import (
 	"github.com/prometheus/client_golang/prometheus"
