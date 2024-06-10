@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"log"
+	"log/slog"
 	"net"
 	"net/http"
 	"time"
@@ -46,12 +47,10 @@ func StartHTTP() {
 	}
 
 	listening := fmt.Sprintf("Listening at address %s", config.bindAddr)
-	log.Println(listening)
-	log.Fatal(server.ListenAndServe())
+	slog.Info(listening)
 
-	if ctx.Err() != nil {
-		log.Fatalln(ctx.Err())
-		return
+	if err := server.ListenAndServe(); err != nil {
+		slog.Warn("server.ListenAndServe", slog.Any("error", err))
 	}
 }
 
