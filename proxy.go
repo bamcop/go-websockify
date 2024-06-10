@@ -1,4 +1,4 @@
-package go-websockify
+package go_websockify
 
 import (
 	"fmt"
